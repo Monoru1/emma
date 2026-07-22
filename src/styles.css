@@ -145,11 +145,10 @@ nav a.active, nav a:hover { border-color:var(--ink); }
 }
 
 /* Scroll reveals: deliberate and calm, not decorative noise. */
-.split,.selected,.manifesto,.chapters,.cta,.page-intro,.filters,.gallery,.about-text,.about-image,.contact-layout { opacity:0; transform:translateY(30px); transition:opacity .8s cubic-bezier(.2,.75,.2,1),transform .8s cubic-bezier(.2,.75,.2,1); }
-.split.is-visible,.selected.is-visible,.manifesto.is-visible,.chapters.is-visible,.cta.is-visible,.page-intro.is-visible,.filters.is-visible,.gallery.is-visible,.about-text.is-visible,.about-image.is-visible,.contact-layout.is-visible { opacity:1; transform:none; }
-.gallery .art-card,.editorial-grid .art-card { transition:opacity .6s cubic-bezier(.2,.75,.2,1),transform .6s cubic-bezier(.2,.75,.2,1); }
-.gallery:not(.is-visible) .art-card { opacity:0; transform:translateY(20px); }
-.gallery.is-visible .art-card:nth-child(2) { transition-delay:.06s; }.gallery.is-visible .art-card:nth-child(3) { transition-delay:.12s; }.gallery.is-visible .art-card:nth-child(4) { transition-delay:.18s; }.gallery.is-visible .art-card:nth-child(5) { transition-delay:.24s; }.gallery.is-visible .art-card:nth-child(6) { transition-delay:.3s; }
+.split,.selected,.manifesto,.chapters,.cta,.page-intro,.filters,.about-text,.about-image,.contact-layout { opacity:0; transform:translateY(30px); transition:opacity .8s cubic-bezier(.2,.75,.2,1),transform .8s cubic-bezier(.2,.75,.2,1); }
+.split.is-visible,.selected.is-visible,.manifesto.is-visible,.chapters.is-visible,.cta.is-visible,.page-intro.is-visible,.filters.is-visible,.about-text.is-visible,.about-image.is-visible,.contact-layout.is-visible { opacity:1; transform:none; }
+/* The work archive is a reading surface: show every drawing immediately. */
+.works .page-intro,.works .filters,.works .gallery,.gallery .art-card { opacity:1; transform:none; transition:none; }
 .hero-copy .eyebrow,.hero-copy h1,.hero-copy .role,.hero-copy .line-link,.hero-statement { animation:hero-copy-in .9s cubic-bezier(.2,.75,.2,1) both; }
 .hero-copy h1 { animation-delay:.08s; }.hero-copy .role { animation-delay:.18s; }.hero-copy .line-link { animation-delay:.28s; }.hero-statement { animation-delay:.2s; }
 @keyframes hero-copy-in { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:none; } }
