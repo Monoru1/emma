@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 type Category = 'drawing' | 'sketches' | 'illustrations' | 'photography' | 'school-projects' | 'graphic-design' | 'traditional-sketches';
 type Artwork = { id:string; title:string; note:string; originalFilename:string; category:Category; image:string; featured?:boolean; order:number };
@@ -38,7 +38,7 @@ const artworks:Artwork[] = (Object.keys(files) as Category[]).flatMap(category =
 }));
 
 function useLocation(){ const [hash,setHash]=useState(location.hash || '#/'); useEffect(()=>{const fn=()=>setHash(location.hash||'#/'); addEventListener('hashchange',fn); return()=>removeEventListener('hashchange',fn)},[]); return hash; }
-const go=(path:string)=>{location.hash=path; window.scrollTo({top:0,behavior:'instant' as ScrollBehavior})};
+const go=(path:string)=>{location.hash=path; window.scrollTo({top:0,left:0,behavior:'auto'})};
 function ArtworkCard({artwork, open}:{artwork:Artwork;open:()=>void}){ const c=collections[artwork.category]; return <button className={`art-card ${c.accent}`} onClick={open} aria-label={`Ouvrir ${artwork.title}`}><img loading="lazy" src={artwork.image} alt={`${artwork.title} — ${artwork.note}`}/><span className="art-meta"><i>{c.number}</i><b>{artwork.title}</b><em>{c.name}</em></span></button> }
 function BrandMark(){return <svg className="brand-mark" viewBox="0 0 42 42" aria-hidden="true"><path d="M8 6v30M8 7h18L14 21h20M8 36h18"/><path d="M29 7v29"/></svg>}
 type IconName='north-east'|'east'|'west'|'south'|'close';
@@ -70,6 +70,12 @@ function Contact(){return <main className="page contact application-page"><p cla
 function Footer(){return <footer className="site-footer"><div className="footer-main"><a className="footer-brand" href="#/" aria-label="Retour à l’accueil"><BrandMark/><span>EMMA</span></a><p>Un dossier de candidature<br/>pour Brassart.</p><a className="footer-contact" href="#/contact"><span>Consulter le parcours</span><StrokeIcon name="north-east"/></a></div><div className="footer-base"><span>© 2026 Emmanuel</span><div><a href="#/works">Travaux</a><a href="#/about">Démarche</a><a href="#/contact">Dossier</a></div><span>Illustration & design graphique</span></div></footer>}
 export function App(){
   const path=useLocation();
+  useLayoutEffect(()=>{
+    if ('scrollRestoration' in history) history.scrollRestoration='manual';
+  },[]);
+  useLayoutEffect(()=>{
+    window.scrollTo({top:0,left:0,behavior:'auto'});
+  },[path]);
   useEffect(()=>{
     const targets=Array.from(document.querySelectorAll<HTMLElement>('.split,.selected,.manifesto,.chapters,.cta,.page-intro,.filters,.gallery,.about-text,.about-image,.contact-layout'));
     if(!targets.length || matchMedia('(prefers-reduced-motion: reduce)').matches){targets.forEach(el=>el.classList.add('is-visible'));return}
