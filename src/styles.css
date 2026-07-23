@@ -111,10 +111,15 @@ nav a.active, nav a:hover { border-color:var(--ink); }
 .chapter i,.split h2 i,.about h1 i,.contact h1 i,.application-record > div:last-child b { color:var(--clay); }
 .about-approach span { color:#625a58; }
 .availability,.application-record { border-color:var(--line); }
+.profile-links { display:grid; gap:8px; margin-top:25px; padding-top:15px; border-top:1px solid var(--line); }
+.profile-links > span { color:var(--muted); font:10px 'DM Mono'; letter-spacing:.08em; text-transform:uppercase; }
+.profile-links a { display:flex; align-items:center; justify-content:space-between; gap:14px; width:100%; padding:9px 0; border-bottom:1px solid var(--line); font-size:14px; transition:color .25s,padding .25s; }
+.profile-links a:hover { padding-left:7px; color:var(--clay); }.profile-links .stroke-icon { width:18px; height:18px; }
 .application-record > div { border-color:var(--line); }
 .application-record { border-top-color:var(--ink); }
 .viewer { color:#f6eee5; background:#1d1214; }.viewer aside p { color:#c6b8b4; }.viewer aside small { color:#a99b9b; }
 .site-footer { color:#f6eee5; background:linear-gradient(150deg,#1d1214,#2c1419); }.footer-brand .brand-mark { stroke:#e75c60; }.footer-main > p { color:#c6b8b4; }.footer-contact:hover { color:#ff8d83; }.footer-base { color:#a99a98; }
+.footer-links { display:grid; gap:18px; }.footer-social { display:flex; gap:16px; color:#c6b8b4; font:11px 'DM Mono'; text-transform:uppercase; }.footer-social a { border-bottom:1px solid transparent; transition:color .25s,border-color .25s; }.footer-social a:hover { color:#ff8d83; border-color:currentColor; }
 @keyframes trace { from { transform:scaleX(0); } to { transform:scaleX(1); } } @keyframes drift { from { transform:scale(1.03) translate(0,0); } to { transform:scale(1.08) translate(-1%,-1%); } }
 
 @media (max-width:900px) { .gallery { grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px 14px; } }
@@ -168,6 +173,8 @@ nav a.active, nav a:hover { border-color:var(--ink); }
   .about-approach div { grid-template-columns:30px 110px 1fr; align-items:baseline; padding:12px 0; border-bottom:1px solid var(--line); }
   .about-approach div:last-child { border-bottom:0; }
   .about-image { max-height:none; aspect-ratio:4/5; object-fit:cover; }
+  .profile-links { margin-top:28px; }
+  .footer-links { gap:14px; }
   .viewer aside { padding-bottom:58px; }
   .prev,.next { display:grid; place-items:center; width:42px; height:42px; border:1px solid rgba(240,237,230,.35); border-radius:50%; background:rgba(23,24,27,.72); }
 }
