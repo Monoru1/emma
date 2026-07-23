@@ -1,4 +1,4 @@
-# Emma — Portfolio artistique
+# emma.illustre — Portfolio artistique
 
 Portfolio React/Vite construit autour du concept **« Entre le trait et la matière »**.
 
@@ -27,6 +27,6 @@ Les noms d’origine sont conservés dans la convention de noms des fichiers et 
 
 ## À configurer avant mise en ligne
 
-- ajouter l’adresse e-mail et les réseaux d’Emma à la page Contact ;
+- ajouter une adresse e-mail de contact si nécessaire.
 - renseigner les informations disponibles (année, technique, dimensions) pour les œuvres ;
 - connecter le formulaire à Netlify Forms ou au service de messagerie choisi.
